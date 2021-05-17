@@ -1,20 +1,34 @@
 # docker_laravel
 
-### ■環境構築
-下記スクリプト実行
+## ■環境構築
+※PHPのバージョンは要件に応じて変更してください。（docker/app/Dockerfile を変更）
+
+1．下記スクリプト実行
 ```angular2html
-docker-compose up --build -d
+docker-compose build
+```
+2．laravelのインストール
+```
+docker-compose run --rm app composer create-project --prefer-dist laravel/laravel . "お好きなバージョン"
+```
+3．コンテナの起動
+```
+docker-compose up -d
+```
+4．コンテナ内に入る
+```
 docker-compose exec app bash
 ```
-コンテナ内下記実行
+5．envの作成
 ```
 cp .env.example .env
+```
+6．composerインストール実行
+```
 composer install
 ```
-
-下記にアクセス
+7．下記にアクセスしLaravelのトップ画面にアクセス出来たら初期構築完了
 * Docker
   http://localhost/
 
-* Docker toolbox
-  http://192.168.99.100/
+* Docker toolboxを使用している場合はコンソールに表示されるIPにアクセスしてください
