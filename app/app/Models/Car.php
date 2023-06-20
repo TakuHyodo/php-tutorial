@@ -13,5 +13,4 @@ class Car extends Model
         'memo',
         'image_url',
     ];
-
 }

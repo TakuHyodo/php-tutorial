@@ -41,20 +41,21 @@
     </div>
     <h2 class="p-2">一覧</h2>
     <table class="table">
-        </thead>
-
         {{-- ここから下が変更箇所 --}}
         <tbody>
         @foreach($cars as $car)
-            <tr>
-                <th scope="row">{{ $car->id }}</th>
-                <td>{{ $car->name }}</td>
-                <td>{{ $car->cc }}</td>
-                <td>{{ $car->company_id }}</td>
-                <td>{{ $car->sale_date }}</td>
-                <td>操作</td>
-                <td>削除</td>
-            </tr>
+                <tr>
+                    <th scope="row">
+                        {{ link_to_route('cars.show', $car->id, ['car' => $car->id]) }}
+                    </th>
+                    <td>{{ $car->name }}</td>
+                    <td>{{ $car->cc }}cc</td>
+                    <td>{{ $car->company_id }}</td>
+                    <td>{{ $car->company_id }}</td>
+                    <td>{{ $car->sale_date }}</td>
+                    <td>操作</td>
+                    <td>削除</td>
+                </tr>
         @endforeach
         </tbody>
     </table>
