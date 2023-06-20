@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/cars', App\Http\Actions\Car\IndexAction::class)->name('cars.index'); //追加
+Route::get('/cars/create', App\Http\Actions\Car\CreateAction::class)->name('cars.create');
+Route::post('/cars/store', App\Http\Actions\Car\StoreAction::class)->name('cars.store');
