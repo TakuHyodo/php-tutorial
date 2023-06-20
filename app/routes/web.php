@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/cars', App\Http\Actions\Car\IndexAction::class)->name('cars.index'); //追加
