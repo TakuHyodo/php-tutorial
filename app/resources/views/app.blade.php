@@ -24,7 +24,9 @@
             </ul>
 
             <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">ログアウト</button>
+                {{ Form::open(['url' => route('logout')]) }}
+                {{ Form::submit('ログアウト', ['class' => 'btn btn-outline-light me-2']) }}
+                {{ Form::close() }}
             </div>
         </div>
     </div>
