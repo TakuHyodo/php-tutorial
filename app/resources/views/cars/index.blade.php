@@ -53,8 +53,15 @@
                     <td>{{ $car->company_id }}</td>
                     <td>{{ $car->company_id }}</td>
                     <td>{{ $car->sale_date }}</td>
-                    <td>{{ link_to_route('cars.edit', '操作', ['car' => $car->id], ['class' => 'btn btn-primary']) }}</td>
-                    <td>削除</td>
+                    <td>{{ link_to_route('cars.edit', '編集', ['car' => $car->id], ['class' => 'btn btn-primary']) }}</td>
+                    <td>
+                        {{ Form::open([
+                        'route' => ['cars.delete', ['car' => $car->id]],
+                        'method' => 'post'])
+                        }}
+                        {{ Form::submit('削除', ['class' => 'btn btn-danger']) }}
+                        {{ Form::close() }}
+                    </td>
                 </tr>
         @endforeach
         </tbody>
