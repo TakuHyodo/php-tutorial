@@ -53,7 +53,7 @@
                     <td>{{ $car->company_id }}</td>
                     <td>{{ $car->company_id }}</td>
                     <td>{{ $car->sale_date }}</td>
-                    <td>操作</td>
+                    <td>{{ link_to_route('cars.edit', '操作', ['car' => $car->id], ['class' => 'btn btn-primary']) }}</td>
                     <td>削除</td>
                 </tr>
         @endforeach

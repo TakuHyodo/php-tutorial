@@ -21,3 +21,5 @@ Route::get('/cars', App\Http\Actions\Car\IndexAction::class)->name('cars.index')
 Route::get('/cars/create', App\Http\Actions\Car\CreateAction::class)->name('cars.create');
 Route::post('/cars/store', App\Http\Actions\Car\StoreAction::class)->name('cars.store');
 Route::get('/cars/{car}', App\Http\Actions\Car\ShowAction::class)->name('cars.show');
+Route::get('/cars/{car}/edit', App\Http\Actions\Car\EditAction::class)->name('cars.edit');
+Route::post('/cars/{car}/edit', App\Http\Actions\Car\UpdateAction::class)->name('cars.update'); //追加

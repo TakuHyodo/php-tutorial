@@ -27,9 +27,9 @@
             <div class="col-3">画像</div>
             <div class="col-4"><img src="{{ $car->image_url }}"></div>
         </div>
-
         <div class="d-grid mt-2 col-4 mx-auto">
             <a class="btn btn-primary">編集</a>
+            {{ link_to_route('cars.edit', '編集', ['car' => $car->id], ['class' => 'btn btn-primary']) }}
         </div>
 
     </main>
