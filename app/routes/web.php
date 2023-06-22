@@ -27,4 +27,5 @@ Route::middleware('auth:web')
         Route::post('/cars/{car}/edit', App\Http\Actions\Car\UpdateAction::class)->name('cars.update');
         Route::post('/cars/{car}/delete', App\Http\Actions\Car\DeleteAction::class)->name('cars.delete');
     });
+Route::get('/companies', App\Http\Actions\Company\IndexAction::class)->name('companies.index');
 
