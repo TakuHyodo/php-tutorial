@@ -35,6 +35,8 @@ Route::middleware('auth:web')
 //        Route::post('/companies/{company}/delete', App\Http\Actions\Company\DeleteAction::class)->name('companies.delete');
     });
 Route::get('/companies', App\Http\Actions\Company\IndexAction::class)->name('companies.index');
+Route::get('/companies/create', App\Http\Actions\Company\CreateAction::class)->name('companies.create');
+//Route::post('/companies/store', App\Http\Actions\Company\StoreAction::class)->name('companies.store');
 
 
 
