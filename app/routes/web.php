@@ -19,7 +19,6 @@ Route::get('/', function () {
 
 Route::middleware('auth:web')
     ->group(function () {
-        Route::get('/cars', App\Http\Actions\Car\IndexAction::class)->name('cars.index');
         Route::get('/cars/create', App\Http\Actions\Car\CreateAction::class)->name('cars.create');
         Route::post('/cars/store', App\Http\Actions\Car\StoreAction::class)->name('cars.store');
         Route::get('/cars/{car}', App\Http\Actions\Car\ShowAction::class)->name('cars.show');
@@ -34,7 +33,10 @@ Route::middleware('auth:web')
 //        Route::post('/companies/{company}/edit', App\Http\Actions\Company\UpdateAction::class)->name('companies.update');
 //        Route::post('/companies/{company}/delete', App\Http\Actions\Company\DeleteAction::class)->name('companies.delete');
     });
+Route::get('/cars', App\Http\Actions\Car\IndexAction::class)->name('cars.index');
 Route::get('/companies', App\Http\Actions\Company\IndexAction::class)->name('companies.index');
+Route::get('/companies/create', App\Http\Actions\Company\CreateAction::class)->name('companies.create');
+Route::post('/companies/store', App\Http\Actions\Company\StoreAction::class)->name('companies.store');
 
 
 

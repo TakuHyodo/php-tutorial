@@ -1,37 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('app')
 
-    <title>車カタログ</title>
-
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
-</head>
-<body class="bg_cl_gr">
-
-<header class="p-3 bg-dark text-white">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                車カタログ
-            </a>
-
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-white">車</a></li>
-                <li><a href="#" class="nav-link px-2 text-secondary">会社</a></li>
-            </ul>
-
-            <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">ログアウト</button>
-            </div>
-        </div>
-    </div>
-</header>
+@section('main')
 
 <main class="container">
+    @if (session('succeed_status'))
+        <div class="mt-2 alert alert-success">
+            {{ session('succeed_status') }}
+        </div>
+    @endif
+
+    @if (session('failed_status'))
+        <div class="mt-2 alert alert-danger">
+            {{ session('failed_status') }}
+        </div>
+    @endif
     <h2 class="p-2">検索</h2>
 
     {{ Form::open(['route' => 'companies.index', 'method' => 'GET']) }}
@@ -50,6 +32,9 @@
     </div>
     {{ Form::close() }}
 
+    <div class="d-grid col-2 ms-auto">
+        {{ link_to_route('companies.create', '新規登録', null, ['class' => 'btn btn-primary']) }}
+    </div>
     <h2 class="p-2">一覧</h2>
     <table class="table">
         <thead>
@@ -77,6 +62,4 @@
     </table>
     {{ $companies->appends(request()->query())->links() }}
 </main>
-
-</body>
-</html>
+@endsection
