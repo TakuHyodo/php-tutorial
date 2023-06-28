@@ -57,7 +57,14 @@
                 <td>{{ $company->company_name }}</td>
                 <td>{{ $company->prefecture_id }}</td>
                 <td>{{ link_to_route('companies.edit', '編集', ['company' => $company->company_id], ['class' => 'btn btn-primary']) }}</td>
-                <td>削除</td>
+                <td>
+                    {{ Form::open([
+                    'route' => ['companies.delete', ['company' => $company->company_id]],
+                    'method' => 'post'])
+                    }}
+                    {{ Form::submit('削除', ['class' => 'btn btn-danger']) }}
+                    {{ Form::close() }}
+                </td>
             </tr>
         @endforeach
         </tbody>
