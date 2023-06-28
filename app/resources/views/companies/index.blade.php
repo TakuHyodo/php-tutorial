@@ -42,7 +42,7 @@
             <th scope="col">会社ID</th>
             <th scope="col">会社名</th>
             <th scope="col">住所</th>
-            <th scope="col">操作</th>
+            <th scope="col">編集</th>
             <th scope="col">削除</th>
         </tr>
         </thead>
@@ -56,7 +56,7 @@
                 </th>
                 <td>{{ $company->company_name }}</td>
                 <td>{{ $company->prefecture_id }}</td>
-                <td>操作</td>
+                <td>{{ link_to_route('companies.edit', '編集', ['company' => $company->company_id], ['class' => 'btn btn-primary']) }}</td>
                 <td>削除</td>
             </tr>
         @endforeach

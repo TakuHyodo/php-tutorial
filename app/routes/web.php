@@ -38,6 +38,8 @@ Route::get('/companies', App\Http\Actions\Company\IndexAction::class)->name('com
 Route::get('/companies/create', App\Http\Actions\Company\CreateAction::class)->name('companies.create');
 Route::post('/companies/store', App\Http\Actions\Company\StoreAction::class)->name('companies.store');
 Route::get('/companies/{company}', App\Http\Actions\Company\ShowAction::class)->name('companies.show');
+Route::get('/companies/{company}/edit', App\Http\Actions\Company\EditAction::class)->name('companies.edit');
+Route::post('/companies/{company}/edit', App\Http\Actions\Company\UpdateAction::class)->name('companies.update');
 
 
 
