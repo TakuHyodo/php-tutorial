@@ -51,7 +51,9 @@
         <tbody>
         @foreach($companies as $company)
             <tr>
-                <th scope="row">{{ $company->company_id }}</th>
+                <th scope="row">
+                    {{ link_to_route('companies.show', $company->company_id, ['company' => $company->company_id]) }}
+                </th>
                 <td>{{ $company->company_name }}</td>
                 <td>{{ $company->prefecture_id }}</td>
                 <td>操作</td>
