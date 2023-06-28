@@ -15,9 +15,10 @@ class CarsTableSeeder extends Seeder
      */
     public function run()
     {
+
         \DB::table('cars')->insert([
             'name' => '車1',
-            'company_id' => null,
+            'company_id' => 1,
             'cc' => 100,
             'sale_date' => now(),
             'memo' => null,

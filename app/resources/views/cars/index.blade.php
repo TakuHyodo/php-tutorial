@@ -40,8 +40,19 @@
         {{ link_to_route('cars.create', '新規登録', null, ['class' => 'btn btn-primary']) }}
     </div>
     <h2 class="p-2">一覧</h2>
+
     <table class="table">
-        {{-- ここから下が変更箇所 --}}
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">車名</th>
+                <th scope="col">排気量</th>
+                <th scope="col">販売会社</th>
+                <th scope="col">販売日</th>
+                <th scope="col">編集</th>
+                <th scope="col">削除</th>
+            </tr>
+            </thead>
         <tbody>
         @foreach($cars as $car)
                 <tr>
@@ -50,8 +61,7 @@
                     </th>
                     <td>{{ $car->name }}</td>
                     <td>{{ $car->cc }}cc</td>
-                    <td>{{ $car->company_id }}</td>
-                    <td>{{ $car->company_id }}</td>
+                    <td>{{ $car->company->company_name}}</td>
                     <td>{{ $car->sale_date }}</td>
                     <td>{{ link_to_route('cars.edit', '編集', ['car' => $car->id], ['class' => 'btn btn-primary']) }}</td>
                     <td>

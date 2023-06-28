@@ -22,6 +22,8 @@ return new class extends Migration
             $table->text('memo')->nullable()->comment('メモ');
             $table->text('image_url')->nullable()->comment('画像URL');
             $table->timestamps();
+            //外部キー
+            $table->foreign('company_id')->references('company_id')->on('companies');
         });
     }
 

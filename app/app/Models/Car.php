@@ -13,4 +13,10 @@ class Car extends Model
         'memo',
         'image_url',
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
 }
