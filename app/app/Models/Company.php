@@ -2,6 +2,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class Company extends Model
 {
     use HasFactory;
@@ -10,7 +11,6 @@ class Company extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'company_id';
 
     protected $fillable = [
         'company_name',
@@ -18,5 +18,11 @@ class Company extends Model
         'memo',
         'image_url',
     ];
+    //追加
+    public function cars():HasMany
+    {
+        return $this->hasMany(Car::class);
+    }
+//ここまで
 
 }

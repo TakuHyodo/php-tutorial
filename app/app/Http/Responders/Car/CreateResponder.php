@@ -18,6 +18,6 @@ class CreateResponder
 
     public function handle(Payload $payload): Response
     {
-        return $this->responseFactory->view('cars.create');
+        return $this->responseFactory->view('cars.create', $payload->getOutput()); // 追加
     }
 }

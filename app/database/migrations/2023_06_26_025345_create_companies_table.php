@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id('company_id')->comment('会社ID');
+            $table->id()->comment('会社ID');
             $table->string('company_name')->nullable()->comment('会社名');
             $table->text('prefecture_id')->nullable()->comment('住所');
             $table->text('memo')->nullable()->comment('メモ');

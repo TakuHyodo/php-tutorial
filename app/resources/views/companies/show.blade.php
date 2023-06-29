@@ -23,7 +23,7 @@
         <div class="col-4"><img src="{{ $company->image_url }}"></div>
     </div>
     <div class="d-grid mt-2 col-4 mx-auto">
-        {{ link_to_route('companies.edit', '編集', ['company' => $company->company_id], ['class' => 'btn btn-primary']) }}
+        {{ link_to_route('companies.edit', '編集', ['company' => $company->id], ['class' => 'btn btn-primary']) }}
     </div>
 
 </main>

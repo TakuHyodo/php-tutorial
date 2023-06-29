@@ -12,7 +12,7 @@
 
         <h2 class="p-2">会社更新</h2>
             {{ Form::open([
-        'route' => ['companies.update', $company->company_id],
+        'route' => ['companies.update', $company->id],
         'method' => 'post',
         'files' => true
         ]) }}

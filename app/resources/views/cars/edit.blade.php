@@ -10,13 +10,13 @@
             </div>
         @endif
 
-            <h2 class="p-2">車更新</h2>
+        <h2 class="p-2">車更新</h2>
 
-            {{ Form::open([
-            'route' => ['cars.update', $car->id],
-            'method' => 'post',
-            'files' => true
-            ]) }}
+        {{ Form::open([
+        'route' => ['cars.update', $car->id],
+        'method' => 'post',
+        'files' => true
+        ]) }}
         <div class="row p-2">
             <div class="col-3">車名<span class="badge bg-danger">必須</span></div>
             <div class="col-8">{{ Form::text('name', $car->name, ['class' => 'form-control']) }}</div>
@@ -26,6 +26,13 @@
             <div class="col-3">排気量<span class="badge bg-danger">必須</span></div>
             <div class="col-4">{{ Form::number('cc', $car->cc, ['class' => 'form-control']) }}</div>
             <div class="col-5">cc</div>
+        </div>
+
+        <div class="row p-2">
+            <div class="col-3">販売会社<span class="badge bg-danger">必須</span></div>
+            <div class="col-6">
+                {{ Form::select('company_id', $companies, $car->company_id, ['class' => 'form-select', 'placeholder' => '選択してください']) }}
+            </div>
         </div>
 
         <div class="row p-2">

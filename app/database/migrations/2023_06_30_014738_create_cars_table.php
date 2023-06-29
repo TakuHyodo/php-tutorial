@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('image_url')->nullable()->comment('画像URL');
             $table->timestamps();
             //外部キー
-            $table->foreign('company_id')->references('company_id')->on('companies');
+            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 

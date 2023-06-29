@@ -3,7 +3,15 @@
 @section('main')
 
 <main class="container">
-    @if (session('succeed_status'))
+    @if (!empty($errors->all()))
+        <div class="mt-2 alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </div>
+    @endif
+
+@if (session('succeed_status'))
         <div class="mt-2 alert alert-success">
             {{ session('succeed_status') }}
         </div>
@@ -52,14 +60,14 @@
         @foreach($companies as $company)
             <tr>
                 <th scope="row">
-                    {{ link_to_route('companies.show', $company->company_id, ['company' => $company->company_id]) }}
+                    {{ link_to_route('companies.show', $company->id, ['company' => $company->id]) }}
                 </th>
                 <td>{{ $company->company_name }}</td>
                 <td>{{ $company->prefecture_id }}</td>
-                <td>{{ link_to_route('companies.edit', '編集', ['company' => $company->company_id], ['class' => 'btn btn-primary']) }}</td>
+                <td>{{ link_to_route('companies.edit', '編集', ['company' => $company->id], ['class' => 'btn btn-primary']) }}</td>
                 <td>
                     {{ Form::open([
-                    'route' => ['companies.delete', ['company' => $company->company_id]],
+                    'route' => ['companies.delete', ['company' => $company->id]],
                     'method' => 'post'])
                     }}
                     {{ Form::submit('削除', ['class' => 'btn btn-danger']) }}

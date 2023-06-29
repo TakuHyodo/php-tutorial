@@ -15,6 +15,14 @@
             <div class="col-5">cc</div>
         </div>
 
+        //追加
+        <div class="row p-2">
+            <div class="col-3">販売会社<span class="badge bg-danger">必須</span></div>
+            <div class="col-6">
+                {{ Form::select('company_id', $companies, $car->company_id, ['class' => 'form-select', 'placeholder' => '選択してください']) }}
+            </div>
+        </div>
+
         <div class="row p-2">
             <div class="col-3">発売日<span class="badge bg-danger">必須</span></div>
             <div class="col-4">{{ $car->sale_date }}</div>

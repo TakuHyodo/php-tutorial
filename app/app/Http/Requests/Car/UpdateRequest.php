@@ -25,6 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
+            'company_id' => ['required', 'exists:companies,id'], //追加
             'cc' => ['required', 'integer', 'min:0'],
             'date' => ['required', 'date'],
             'memo' => ['nullable', 'string'],
@@ -40,6 +41,7 @@ class UpdateRequest extends FormRequest
             'date' => '販売日',
             'memo' => 'メモ',
             'image' => '画像',
+            'company_id' => '販売会社', //追加
         ];
     }
 }
